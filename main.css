@@ -1,0 +1,53 @@
+body, html {
+    height: 100%;
+}
+
+.completo {
+    background: darkgrey;
+}
+
+.fila-juego {
+    height: 25vh;
+    display: flex;
+}
+
+.columna-juego {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.cuadro {
+    opacity: 0; 
+    transition: opacity ease 0.2s;
+    border: 1px solid black;
+    cursor: pointer;
+    height: 90%;
+    width: 90%;
+}
+
+.rojo {
+    background-color: red;
+}
+
+.verde {
+    background-color: green;
+}
+
+.amarillo {
+    background-color: yellow;
+}
+
+.negro {
+    background-color: black;
+}
+
+.blanco {
+    background-color: white;
+}
+
+.azul {
+    background-color: blue;
+}
