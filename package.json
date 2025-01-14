@@ -7,9 +7,14 @@
   "type": "commonjs",
   "main": "main.js",
   "scripts": {
+    "cypress-run": "cypress run",
+    "cypress-dev": "cypress open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "bootstrap": "^5.3.3"
+  },
+  "devDependencies": {
+    "cypress": "^13.17.0"
   }
 }
