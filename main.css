@@ -1,0 +1,55 @@
+html, body{
+    height: 100%;
+}
+
+.row {
+    flex: 1;
+    display: flex;
+}
+
+.col{
+    border: 1px solid black;
+}
+
+.container-fluid{
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.contador-tiempo{
+    height: 5vh;
+}
+
+.rojo{
+    background-color: red;
+}
+
+.verde{
+    background-color: green;
+}
+
+.azul{
+    background-color: blue;
+}
+
+.amarillo{
+    background-color: yellow;
+}
+
+.negro{
+    background-color: black;
+}
+
+.blanco{
+    background-color: white;
+}
+
+.gris{
+    background-color: grey;
+}
+
+.marron{
+    background-color: brown;
+}
+
