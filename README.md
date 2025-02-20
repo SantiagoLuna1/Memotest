@@ -1,10 +1,10 @@
 # Memotest
 
-Memotest es un juego clásico de memoria en el que el jugador debe encontrar y emparejar cartas (o cuadros) con el mismo color. ¡Pon a prueba tu concentración y velocidad!
+Memotest es un juego clásico de memoria en el que el jugador debe encontrar y emparejar cuadros con el mismo pokemon. ¡Pon a prueba tu concentración y velocidad!
 
 ## Características
 
-- **Juego de memoria:** Encuentra todos los pares de colores para ganar.
+- **Juego de memoria:** Encuentra todos los pares de pokemones para ganar.
 - **Contador de tiempo:** Mide el tiempo que tardas en completar el juego.
 - **Contador de turnos:** Muestra la cantidad de movimientos realizados.
 - **Interfaz responsiva:** Gracias a [Bootstrap](https://getbootstrap.com/), la interfaz se adapta a diferentes dispositivos.
@@ -24,3 +24,6 @@ Memotest es un juego clásico de memoria en el que el jugador debe encontrar y e
    
 4. **Fin del juego:**  
    Cuando se descubren y retiran todos los cuadros, el juego finaliza, mostrando el número total de turnos y el tiempo transcurrido.
+
+## Captura de pantalla
+!JuegoMemotest(imagenes/sodapdf-converted.png)
