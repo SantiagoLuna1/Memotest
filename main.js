@@ -1,61 +1,70 @@
 const $tablero = document.querySelector('#tablero');
 const $cuadro = document.querySelectorAll('.cuadro');
 const $mensajeFinJuego = document.querySelector('#fin-juego');
-const coloresMezclados = coloresAleatorios(); 
 let $primerCuadro = null;
 let turnos = 0;
 let tiempo = 0;
 let intervaloTiempo = null;
 
-function comenzarJuego(){
-    asignarColores();
+const imagenes = [
+    "imagenes/bullbasaur.png",
+    "imagenes/charmander.png",
+    "imagenes/eevee.png",
+    "imagenes/meowth.png",
+    "imagenes/pidgey.png",
+    "imagenes/pikachu.png",
+    "imagenes/squirtle.png",
+    "imagenes/venonat.png"
+];
+
+function comenzarJuego() {
+    agregarImagenes();
     manejarEvento();
 }
 
-function coloresAleatorios(){   
-    const colores = ['rojo', 'verde', 'azul', 'amarillo' , 'negro', 'purpura', 'gris', 'marron'];
-    const coloresDuplicados = colores.concat(colores);
+function agregarImagenes() {
+    const imagenesMezcladas = imagenesAleatorias();
+    $cuadro.forEach(function (cuadro, i) {
+        const img = document.createElement('img');
+        img.src = imagenesMezcladas[i];
+        img.classList.add('imagen-juego');
+        cuadro.appendChild(img);
+    });
+}
 
-    function barajar(array){  //Fisher-Yates
-        for (let i = array.length -1; i > 0; i--) {
+function imagenesAleatorias() {
+    const imagenesDuplicadas = imagenes.concat(imagenes);
+    function barajar(array) {
+        for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
         return array;
     }
-    return barajar(coloresDuplicados);
+    return barajar(imagenesDuplicadas);
 }
 
-function asignarColores(){
-    coloresMezclados.forEach(function(color, i) {
-        $cuadro[i].classList.add(color);
-    });
-}
-
-function manejarEvento(){
+function manejarEvento() {
     $tablero.onclick = function(e) {
         const $elemento = e.target;
-        if ($elemento.classList.contains('cuadro')) { //Cuando se hace clic en cualquier parte del tablero, verifica si el clic fue en un cuadro
+        if ($elemento.classList.contains('cuadro')) {
             if (intervaloTiempo === null) {
                 iniciarContador();
             }
-            manejarClickCuadro($elemento); //Si fue en un cuadro se llama a esta función
+            manejarClickCuadro($elemento);
         }
     };
 }
 
-function manejarClickCuadro($cuadroActual){
+function manejarClickCuadro($cuadroActual) {
     mostrarCuadro($cuadroActual);
 
     if ($primerCuadro === null) {
         $primerCuadro = $cuadroActual;
     } else {
-        if ($primerCuadro === $cuadroActual) {
-            return;
-        }
-        
-        turnos++;
+        if ($primerCuadro === $cuadroActual) return;
 
+        turnos++;
         if (cuadrosIguales($primerCuadro, $cuadroActual)) {
             eliminarCuadro($primerCuadro);
             eliminarCuadro($cuadroActual);
@@ -67,31 +76,37 @@ function manejarClickCuadro($cuadroActual){
     }
 }
 
-function mostrarCuadro($cuadro){
-    $cuadro.style.opacity = '1';
+function mostrarCuadro($cuadro) {
+    const $imagen = $cuadro.querySelector('img');
+    if ($imagen) {
+        $imagen.style.display = 'block';
+    }
 }
 
-function ocultarCuadro($cuadro){
+function ocultarCuadro($cuadro) {
     setTimeout(function() {
-        $cuadro.style.opacity = '0';
-    }, 500);   
+        const $imagen = $cuadro.querySelector('img');
+        if ($imagen) {
+            $imagen.style.display = 'none';
+        }
+    }, 500);
 }
 
-function cuadrosIguales($cuadro1, $cuadro2){
-    return $cuadro1.className === $cuadro2.className;
+function cuadrosIguales($cuadro1, $cuadro2) {
+    return $cuadro1.querySelector('img').src === $cuadro2.querySelector('img').src;
 }
 
-function eliminarCuadro($cuadro){
+function eliminarCuadro($cuadro) {
     setTimeout(function() {
-        $cuadro.parentElement.classList.add('completo');
-        $cuadro.remove();
+        $cuadro.classList.add('eliminado');
+        $cuadro.style.visibility = 'hidden';
         evaluarFinDeJuego();
     }, 500);
 }
 
 function iniciarContador() {
-    if (intervaloTiempo !== null) return;
-    intervaloTiempo = setInterval(() => {
+    if (intervaloTiempo) return;
+    intervaloTiempo = setInterval(function() {
         tiempo++;
         document.getElementById('tiempo').textContent = `Tiempo: ${tiempo}s`;
     }, 1000);
@@ -102,12 +117,15 @@ function detenerContador() {
     intervaloTiempo = null;
 }
 
-function evaluarFinDeJuego(){
-    if (document.querySelectorAll('.cuadro').length === 0) {
-        $tablero.style.display = 'none';
-        $mensajeFinJuego.querySelector('strong').textContent = turnos.toString();
-        $mensajeFinJuego.style.display = 'block';
-        detenerContador();
+function evaluarFinDeJuego() {
+    const cuadrosEliminados = document.querySelectorAll('.cuadro.eliminado').length;
+    const totalCuadros = $cuadro.length;
+    
+    if (cuadrosEliminados === totalCuadros) {  // Si todos los cuadros han sido eliminados
+        $tablero.style.display = 'none'; // Esconde el tablero
+        $mensajeFinJuego.querySelector('strong').textContent = turnos.toString(); // Muestra los turnos
+        $mensajeFinJuego.style.display = 'block'; // Muestra el mensaje de fin de juego
+        detenerContador(); // Detiene el contador
     }
 }
 

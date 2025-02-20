@@ -3,80 +3,47 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Memotest</title>
+    <title>Memotest Pokemon</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 
 </head>
 <body>
-
-    <div id="fin-juego">
-        <p class="display-1">Fin del juego! Tardaste <strong><!-- --></strong> turnos en terminar.</p>
-    </div>
-
-    <div id="tablero">
-        <div class="container-fluid">
-            <div class="row"> <!--fila-->
-                <div class="col"> <!--columnas-->
-                    <div class="cuadro"></div>
-                </div>
-                <div class="col"> 
-                    <div class="cuadro"></div>
-                </div>
-                <div class="col"> 
-                    <div class="cuadro"></div>
-                </div>
-                <div class="col"> 
-                    <div class="cuadro"></div>
-                </div>
+    <div class="box">
+        <h1>MEMOTEST</h1>
+        <div id="fin-juego">
+            <p class="display-1">Fin del juego! Tardaste <strong><!-- --></strong> turnos en terminar.</p>
+        </div>
+        <div class="container my-3 p-3" id="tablero">
+            <div class="row mx-auto">
+                <div class="col-3"><div class="cuadro"></div></div>
+                <div class="col-3"><div class="cuadro"></div></div>
+                <div class="col-3"><div class="cuadro"></div></div>
+                <div class="col-3"><div class="cuadro"></div></div>
             </div>
-            <div class="row"> <!--fila-->
-                <div class="col"> <!--columnas-->
-                    <div class="cuadro"></div>
-                </div>
-                <div class="col"> 
-                    <div class="cuadro"></div>
-                </div>
-                <div class="col"> 
-                    <div class="cuadro"></div>
-                </div>
-                <div class="col"> 
-                    <div class="cuadro"></div>
-                </div>
+            <div class="row mx-auto">
+                <div class="col-3"><div class="cuadro"></div></div>
+                <div class="col-3"><div class="cuadro"></div></div>
+                <div class="col-3"><div class="cuadro"></div></div>
+                <div class="col-3"><div class="cuadro"></div></div>
             </div>
-            <div class="row"> <!--fila-->
-                <div class="col"> <!--columnas-->
-                    <div class="cuadro"></div>
-                </div>
-                <div class="col"> 
-                    <div class="cuadro"></div>
-                </div>
-                <div class="col"> 
-                    <div class="cuadro"></div>
-                </div>
-                <div class="col"> 
-                    <div class="cuadro"></div>
-                </div>
+            <div class="row mx-auto">
+                <div class="col-3"><div class="cuadro"></div></div>
+                <div class="col-3"><div class="cuadro"></div></div>
+                <div class="col-3"><div class="cuadro"></div></div>
+                <div class="col-3"><div class="cuadro"></div></div>
             </div>
-            <div class="row"> <!--fila-->
-                <div class="col"> <!--columna-->
-                    <div class="cuadro"></div>
-                </div>
-                <div class="col"> 
-                    <div class="cuadro"></div>
-                </div>
-                <div class="col"> 
-                    <div class="cuadro"></div>
-                </div>
-                <div class="col"> 
-                    <div class="cuadro"></div>
-                </div>
+            <div class="row mx-auto">
+                <div class="col-3"><div class="cuadro"></div></div>
+                <div class="col-3"><div class="cuadro"></div></div>
+                <div class="col-3"><div class="cuadro"></div></div>
+                <div class="col-3"><div class="cuadro"></div></div>
             </div>
         </div>
-    </div>
-    <div class="contador-tiempo text-center">
-        <span id="tiempo">Tiempo: 0s</span>
+        <div class="contador-tiempo text-center">
+            <span id="tiempo">Tiempo: 0s</span>
+        </div>
     </div>
     <script src='main.js'></script>
 </body>
