@@ -25,5 +25,7 @@ Memotest es un juego clásico de memoria en el que el jugador debe encontrar y e
 4. **Fin del juego:**  
    Cuando se descubren y retiran todos los cuadros, el juego finaliza, mostrando el número total de turnos y el tiempo transcurrido.
 
+Link imagenes: <a href="https://www.flaticon.es/iconos-gratis/pokemon" title="pokemon iconos">Pokemon iconos creados por Roundicons Freebies - Flaticon</a>
+
 ## Captura de pantalla
-!JuegoMemotest(imagenes/sodapdf-converted.png)
+![JuegoMemotest](imagenes/sodapdf-converted.png)
